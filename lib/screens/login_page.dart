@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myfirstdata/helpers/help.dart';
 import 'package:myfirstdata/screens/forgot_password_page.dart';
 
+import '../models/decoration.dart';
+
 class LoginScreen extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -24,15 +26,10 @@ class LoginScreen extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'e-mail',
-                fillColor: Color.fromARGB(255, 213, 234, 244),
+                fillColor: fillColorLightBlue,
                 filled: true,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 167, 143, 134), width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
+                enabledBorder: enabledBorder(),
+                focusedBorder: focusedBorder(),
               ),
               textInputAction: TextInputAction.next,
             ),
@@ -44,15 +41,10 @@ class LoginScreen extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'password',
-                fillColor: Color.fromARGB(255, 213, 234, 244),
+                fillColor: fillColorLightBlue,
                 filled: true,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 167, 143, 134), width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
+                enabledBorder: enabledBorder(),
+                focusedBorder: focusedBorder(),
               ),
               textInputAction: TextInputAction.done,
               obscureText: true,
@@ -64,7 +56,7 @@ class LoginScreen extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return ForgotPasswordScreen();
+                    return const ForgotPasswordScreen();
                   }));
                 },
                 child: const Text('Forgot password?'),
@@ -88,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
+                      return const AlertDialog(
                         content: Text('Wrong email or password'),
                       );
                     });

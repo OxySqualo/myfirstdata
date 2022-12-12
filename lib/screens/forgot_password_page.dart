@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:myfirstdata/models/decoration.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
-  ForgotPasswordScreen({Key? key}) : super(key: key);
+  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
   State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
@@ -24,7 +25,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       showDialog(
           context: context,
           builder: (context) {
-            return AlertDialog(
+            return const AlertDialog(
               content: Text("Password reset link sent! Check your email"),
             );
           });
@@ -61,15 +62,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               decoration: InputDecoration(
                 hintText: 'e-mail',
                 border: InputBorder.none,
-                fillColor: Color.fromARGB(255, 213, 234, 244),
+                fillColor: fillColorLightBlue,
                 filled: true,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 167, 143, 134), width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
+                enabledBorder: enabledBorder(),
+                focusedBorder: focusedBorder(),
               ),
             ),
           ),

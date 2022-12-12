@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstdata/helpers/help.dart';
 
+import '../models/decoration.dart';
+
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -31,15 +33,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'e-mail',
-                fillColor: Color.fromARGB(255, 213, 234, 244),
+                fillColor: fillColorLightBlue,
                 filled: true,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 167, 143, 134), width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
+                enabledBorder: enabledBorder(),
+                focusedBorder: focusedBorder(),
               ),
               textInputAction: TextInputAction.next,
             ),
@@ -51,15 +48,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'password',
-                fillColor: Color.fromARGB(255, 213, 234, 244),
+                fillColor: fillColorLightBlue,
                 filled: true,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 167, 143, 134), width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
+                enabledBorder: enabledBorder(),
+                focusedBorder: focusedBorder(),
               ),
               obscureText: true,
               textInputAction: TextInputAction.done,
@@ -72,15 +64,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Password again',
-                fillColor: Color.fromARGB(255, 213, 234, 244),
+                fillColor: fillColorLightBlue,
                 filled: true,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 167, 143, 134), width: 3.0),
-                    borderRadius: BorderRadius.circular(12)),
+                enabledBorder: enabledBorder(),
+                focusedBorder: focusedBorder(),
               ),
               obscureText: true,
               textInputAction: TextInputAction.done,
@@ -99,7 +86,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   showDialog(
                       context: context,
                       builder: (context) {
-                        return AlertDialog(
+                        return const AlertDialog(
                           content: Text('Something went wrong'),
                         );
                       });
@@ -108,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
+                      return const AlertDialog(
                         content: Text('Passwords are not the same'),
                       );
                     });
